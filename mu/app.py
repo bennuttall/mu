@@ -50,7 +50,7 @@ from mu.logic import Editor, LOG_FILE, LOG_DIR, DEBUGGER_PORT
 from mu.interface import Window
 from mu.resources import load_pixmap
 from mu.modes import (PythonMode, AdafruitMode, MicrobitMode, DebugMode,
-                      PyGameZeroMode)
+                      PyGameZeroMode, GPIOZeroMode)
 from mu.debugger.runner import run as run_debugger
 
 
@@ -87,6 +87,7 @@ def setup_modes(editor, view):
         'adafruit': AdafruitMode(editor, view),
         'microbit': MicrobitMode(editor, view),
         'debugger': DebugMode(editor, view),
+        'gpiozero': GPIOZeroMode(editor, view)
     }
     # Check if pgzero is available (without importing it)
     if any([m for m in pkgutil.iter_modules() if 'pgzero' in m]):
